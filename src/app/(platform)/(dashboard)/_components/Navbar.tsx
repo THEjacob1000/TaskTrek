@@ -26,6 +26,7 @@ const Navbar = () => {
           afterCreateOrganizationUrl="/organization/:id"
           afterLeaveOrganizationUrl="/select-org"
           afterSelectOrganizationUrl="/organization/:id"
+          afterSelectPersonalUrl="/personal/:id"
           appearance={{
             elements: {
               rootBox: {
