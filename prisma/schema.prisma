@@ -12,7 +12,7 @@ datasource db {
 
 model Board {
   id    String @id @default(cuid())
-  orgid String
+  orgId String
   title String
 
   imageId       String
