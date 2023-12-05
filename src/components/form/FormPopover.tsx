@@ -14,6 +14,7 @@ import { useAction } from "@/hooks/use-action";
 import { createBoard } from "@/actions/create-board";
 import FormErrors from "./FormErrors";
 import { toast } from "sonner";
+import FormPicker from "./FormPicker";
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -40,6 +41,8 @@ const FormPopover = ({
   });
   const onSubmit = (formData: FormData) => {
     const title = formData.get("title") as string;
+    const image = formData.get("image") as string;
+
     execute({ title });
   };
 
@@ -65,6 +68,7 @@ const FormPopover = ({
         </PopoverClose>
         <form action={onSubmit} className="space-y-4">
           <div className="space-y-4">
+            <FormPicker id="image" errors={fieldErrors} />
             <FormInput
               id="title"
               label="Board title"
