@@ -20,7 +20,6 @@ import Link from "next/link";
 import { useLocalStorage } from "usehooks-ts";
 import NavItem, { Organization } from "./NavItem";
 import { Separator } from "@/components/ui/separator";
-import { User } from "@clerk/nextjs/server";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -95,7 +94,19 @@ const Sidebar = ({
   };
 
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
-    return <Skeleton />;
+    return (
+      <>
+        <div className="flex items-center justify-between mb-2">
+          <Skeleton className="h-10 w-[50%]" />
+          <Skeleton className="h-10 w-10" />
+        </div>
+        <div className="space-y-2">
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+        </div>
+      </>
+    );
   }
 
   return (
