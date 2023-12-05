@@ -1,12 +1,24 @@
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import {
+  OrganizationSwitcher,
+  UserButton,
+  currentUser,
+} from "@clerk/nextjs";
 import { Plus } from "lucide-react";
+import MobileSidebar from "./MobileSidebar";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const userPromise = await currentUser();
+  const { id, firstName, imageUrl } = userPromise!;
+  const user = {
+    id,
+    firstName,
+    imageUrl,
+  };
   return (
     <nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center">
-      {/* Mobile Sidebar */}
+      <MobileSidebar user={user} />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex ">
           <Logo />
