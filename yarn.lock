@@ -614,7 +614,7 @@
     "@radix-ui/react-use-previous" "1.0.1"
     "@radix-ui/react-visually-hidden" "1.0.3"
 
-"@radix-ui/react-popover@latest":
+"@radix-ui/react-popover@^1.0.7", "@radix-ui/react-popover@latest":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-popover/-/react-popover-1.0.7.tgz#23eb7e3327330cb75ec7b4092d685398c1654e3c"
   integrity sha512-shtvVnlsxT6faMnK/a7n0wptwBD23xc1Z5mdrtKLwVEfsEMXodS0r5s0/g5P0hX//EKYZS2sxUjqfzlg52ZSnQ==
@@ -884,7 +884,7 @@
     "@radix-ui/react-separator" "1.0.3"
     "@radix-ui/react-toggle-group" "1.0.4"
 
-"@radix-ui/react-tooltip@latest":
+"@radix-ui/react-tooltip@^1.0.7", "@radix-ui/react-tooltip@latest":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-tooltip/-/react-tooltip-1.0.7.tgz#8f55070f852e7e7450cc1d9210b793d2e5a7686e"
   integrity sha512-lPh5iKNFVQ/jav/j6ZrWq3blfDJ0OH9R6FlNUHPMqdLuQ9vwDgFsRxvl8b7Asuy5c8xmoojHUxKHQSOAvMHxyw==
@@ -3330,6 +3330,11 @@ snakecase-keys@5.4.4:
     map-obj "^4.1.0"
     snake-case "^3.0.4"
     type-fest "^2.5.2"
+
+sonner@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/sonner/-/sonner-1.2.4.tgz#c13b079a79fabef72135537aeb0164ad0671d044"
+  integrity sha512-WGLP2QQnomgewaCTsK7YWiLcy5n1Yj83vsL5cP4zHMmpSkmFsCYTpQKhlXJrPE5kzjwbqCkCFXcOpbKc4vaUaA==
 
 source-map-js@^1.0.2:
   version "1.0.2"
