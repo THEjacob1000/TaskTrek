@@ -12,6 +12,7 @@ import {
   hasAvailableCount,
   incrementAvailableCount,
 } from "@/lib/org-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -22,7 +23,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   }
 
   const canCreate = await hasAvailableCount();
-  if (!canCreate) {
+  const isPro = await checkSubscription();
+
+  if (!canCreate && !isPro) {
     return {
       error:
         "You have reached your board limit. Please upgrade your plan",
@@ -65,8 +68,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageLinkHTML,
       },
     });
-
-    await incrementAvailableCount();
+    if (!isPro) {
+      await incrementAvailableCount();
+    }
 
     await createAuditLog({
       entityTitle: board.title,

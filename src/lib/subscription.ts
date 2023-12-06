@@ -14,7 +14,7 @@ export const checkSubscription = async () => {
     select: {
       stripeSubscriptionId: true,
       stripeCurrentPeriodEnd: true,
-      stripCustomerId: true,
+      stripeCustomerId: true,
       stripePriceId: true,
     },
   });
