@@ -63,28 +63,6 @@ const Sidebar = ({
   const onClick = (href: string) => {
     router.push(href);
   };
-  const routes = [
-    {
-      label: "Boards",
-      icon: <Layout className="h-4 w-4 mr-2" />,
-      href: `/personal/${user.id}`,
-    },
-    {
-      label: "Activity",
-      icon: <Activity className="h-4 w-4 mr-2" />,
-      href: `/personal/${user.id}/activity`,
-    },
-    {
-      label: "Settings",
-      icon: <Settings className="h-4 w-4 mr-2" />,
-      href: `/personal/${user.id}/settings`,
-    },
-    {
-      label: "Billing",
-      icon: <CreditCard className="h-4 w-4 mr-2" />,
-      href: `/personal/${user.id}/billing`,
-    },
-  ];
 
   const onExpand = (id: string) => {
     setExpanded((curr) => ({
@@ -130,68 +108,15 @@ const Sidebar = ({
         defaultValue={defaultAccordionValue}
         className="space-y-2"
       >
-        {userMemberships ? (
-          <>
-            {userMemberships.data.map(({ organization }) => (
-              <NavItem
-                key={organization.id}
-                isActive={activeOrganization?.id === organization.id}
-                isExpanded={expanded[organization.id]}
-                organization={organization as Organization}
-                onExpand={onExpand}
-              />
-            ))}
-            <Separator className="my-10" />
-          </>
-        ) : null}
-
-        <AccordionItem
-          value={user.id}
-          className="border-none"
-          key={user.id}
-        >
-          <AccordionTrigger
-            onClick={() => onExpand(user.id)}
-            className={cn(
-              "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-              !activeOrganization &&
-                !expanded[user.id] &&
-                "bg-sky-500/10 text-sky-700"
-            )}
-          >
-            <div className="flex items-center gap-x-2">
-              <div className="w-7 h-7 relative">
-                <Image
-                  fill
-                  src={user.imageUrl}
-                  alt="User"
-                  className="rounded-sm object-cover"
-                />
-              </div>
-              <span className="font-medium text-sm">
-                {user.firstName}
-              </span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pt-1 text-neutral-700">
-            {routes.map((route) => (
-              <Button
-                key={route.href}
-                size="sm"
-                onClick={() => onClick(route.href)}
-                className={cn(
-                  "w-full font-normal justify-start pl-10 mb-1",
-                  pathname === route.href &&
-                    "bg-sky-500/10 text-sky-700"
-                )}
-                variant="ghost"
-              >
-                {route.icon}
-                {route.label}
-              </Button>
-            ))}
-          </AccordionContent>
-        </AccordionItem>
+        {userMemberships.data.map(({ organization }) => (
+          <NavItem
+            key={organization.id}
+            isActive={activeOrganization?.id === organization.id}
+            isExpanded={expanded[organization.id]}
+            organization={organization as Organization}
+            onExpand={onExpand}
+          />
+        ))}
       </Accordion>
     </>
   );

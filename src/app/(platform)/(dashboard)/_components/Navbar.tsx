@@ -43,7 +43,7 @@ const Navbar = async () => {
           afterCreateOrganizationUrl="/organization/:id"
           afterLeaveOrganizationUrl="/select-org"
           afterSelectOrganizationUrl="/organization/:id"
-          afterSelectPersonalUrl="/personal/:id"
+          hidePersonal
           appearance={{
             elements: {
               rootBox: {
